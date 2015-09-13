@@ -104,8 +104,8 @@
 lambda:~% ghci
 GHCi, version 7.10.1.20150715: http://www.haskell.org/ghc/  :? for help
 λ> :m +Codec.Binary.Base64.String Data.List Data.Char
-λ> let arg = "bmlvSiBkbmEgZW1vY2ViIGEgcmV0c2d1aHQgIXlhZG90"
-λ> foldl (\a s -> a ++ reverse s) mempty . intersperse [chr $ 2^5] . words $ decode arg
+λ> let arg = "bmlvSiB3b24gZG5hIGVtb2NlYiBhIHJldHNndWh0ICF5YWRvdA=="
+λ> foldl ((. reverse) . (++)) mempty . intersperse [chr $ 2^5] . words $ decode arg
 </pre>
 
             </br>
