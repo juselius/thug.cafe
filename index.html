@@ -67,7 +67,7 @@
             <div class="jumbotron">
                 <h4>Welcome to</h4>
                 <h1>Troms&oslash; Haskell Users Group</h1>
-                <h4>(other functional programmers are also welcome)</h4>
+                <h4>(all functional programmers are welcome!)</h4>
             </div>
 
             <div class="hero-unit">
@@ -77,16 +77,24 @@
                 </p>
 
                 <p>
-                We are a group of Haskell and functional programming
-                enthusiasts who enjoy a friendly discussion about programming languages and
-                philosophy. The group spans the full spectrum from die-hard Haskeller to
-                novice to people who have heard of Haskell and are simply curious to learn
-                more. Our aim is to learn and teach and exchange and have fun.
+                We are a group of functional programming enthusiasts who enjoy
+                a friendly discussion about programming languages and coding
+                philosophy. The group spans the full spectrum from the
+                die-hard Haskeller to people who have heard of functional
+                programming and are simply curious to learn more. Our aim is
+                to teach and learn from each other, exchange ideas and have fun.
                 </p>
 
                 </br>
                 <a class="btn btn-large" href="https://github.com/thug/thug.cafe">Fork me on GitHub</a>
-                <p>The Chef recommends: <a href="http://stackage.org">Stackage!<a/></p>
+                <p>The Chef recommends:
+                        [<a href="http://haskell.org">Haskell<a/> &amp;
+                        <a href="http://stackage.org">Stackage<a/>]
+                        [<a href="http://fsharp.org">F#<a/> &amp;
+                        <a href="http://www.nuget.org">NuGet<a/>]
+                        [<a href="http://clojure.org">Clojure<a/> &amp;
+                        <a href="http://clojars.org">Clojars<a/>]
+                </p>
             </div>
 
             </br>
@@ -95,11 +103,9 @@
 <pre>
 lambda:~% ghci
 GHCi, version 7.10.1.20150715: http://www.haskell.org/ghc/  :? for help
-λ> putStrLn $ foldl (\a s -> a ++ reverse s) "" ["olleh", " ", "dlrow", "!"]
-hello world!
-it ∷ ()
-(0.00 secs, 0 bytes)
-λ>
+λ> :m +Codec.Binary.Base64.String Data.List Data.Char
+λ> let arg = "bmlvSiBkbmEgZW1vY2ViIGEgcmV0c2d1aHQgIXlhZG90"
+λ> foldl (\a s -> a ++ reverse s) mempty . intersperse [chr $ 2^5] . words $ decode arg
 </pre>
 
             </br>
@@ -127,7 +133,7 @@ it ∷ ()
                 </p>
 
                 <p>
-                Jonas Jus&eacute;lius (firstname.lastname@uit.no)
+                Jonas Jus&eacute;lius (firstname.lastname@gmail.com)
                 </br>
                 Radovan Bast (firstname.lastname@uit.no)
                 </p>
@@ -141,7 +147,8 @@ it ∷ ()
             </p>
 
             <p class="page-header">
-            This ace theme is made possible by beautiful work from: <a href="https://github.com/kristopolous/BOOTSTRA.386">kristopoulus</a>
+            This ace theme is made possible by beautiful work from:
+            <a href="https://github.com/kristopolous/BOOTSTRA.386">kristopoulus</a>
             </p>
 
         </div>
