@@ -104,13 +104,14 @@
 lambda:~% ghci
 GHCi, version 7.10.1.20150715: http://www.haskell.org/ghc/  :? for help
 λ> :m Data.List Data.Char Data.List.Split Data.Bits Numeric
-λ> let msg = "919690b5df889091df9b919edf9a92909c9a9ddf9edf8d9a8b8c988a978bdfde869e9b908b"
 λ> :{
-    foldl ((. reverse) . (++)) mempty
-        . intersperse [chr $ 2^5]
-        . words
-        . map (chr . xor 0xff . fst . head . readHex)
-        $ chunksOf 2 msg
+foldl ((. reverse) . (++)) mempty
+  . intersperse [chr $ 2^5]
+  . words
+  . map (chr . xor 0xff . fst . head . readHex)
+  . chunksOf 2
+  $ concat ["919690b5df889091df9b919edf9a92909",
+    "c9a9ddf9edf8d9a8b8c988a978bdfde869e9b908b"]
 :}
 </pre>
 
